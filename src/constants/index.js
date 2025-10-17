@@ -22,157 +22,79 @@ import {
   carrent,
   jobit,
   tripguide,
-  threejs,
+  threejs, // <-- ajoute bien s2m dans src/assets/index.js
 } from "../assets";
+// src/constants/index.js
+import s2m from "../assets/s2m.png"; // <-- ajoute cette ligne
 
 export const navLinks = [
-  {
-    id: "about",
-    title: "About",
-  },
-  {
-    id: "work",
-    title: "Work",
-  },
-  {
-    id: "contact",
-    title: "Contact",
-  },
+  { id: "about", title: "About" },
+  { id: "work", title: "Work" },
+  { id: "contact", title: "Contact" },
 ];
 
+/* ======== SERVICES (alignés à ton CV) ======== */
 const services = [
-  {
-    title: "Web Developer",
-    icon: web,
-  },
-  {
-    title: "React Native Developer",
-    icon: mobile,
-  },
-  {
-    title: "Backend Developer",
-    icon: backend,
-  },
-  {
-    title: "Content Creator",
-    icon: creator,
-  },
+  { title: "Back-end Spring Boot", icon: backend },
+  { title: "Front-end Angular/TS", icon: web },
+  { title: "APIs REST • JWT/RBAC", icon: creator },
+  { title: "PostgreSQL • Docker", icon: mobile },
 ];
 
+/* ======== TECHNOLOGIES (on garde tes icônes existantes) ======== */
 const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
+  { name: "HTML 5", icon: html },
+  { name: "CSS 3", icon: css },
+  { name: "JavaScript", icon: javascript },
+  { name: "TypeScript", icon: typescript },
+  { name: "React JS", icon: reactjs },
+  { name: "Redux Toolkit", icon: redux },
+  { name: "Tailwind CSS", icon: tailwind },
+  { name: "Node JS", icon: nodejs },
+  { name: "MongoDB", icon: mongodb },
+  { name: "Three JS", icon: threejs },
+  { name: "git", icon: git },
+  { name: "figma", icon: figma },
+  { name: "docker", icon: docker },
 ];
 
+/* ======== EXPERIENCES (S2M + Freelance; bénévolat retiré) ======== */
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    title: "Stage PFA — Société Maghrébine de Monétique (S2M)",
+    company_name: "Casablanca",
+    icon: s2m,          // nécessite l’export de s2m dans src/assets/index.js
+    iconBg: "#ffffff",  // ajuste si besoin (#0e1320 si ton logo est clair)
+    date: "1 juillet 2025 — 15 septembre 2025",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Conception et réalisation d’une plateforme USSD multi-tenant, multi-operator et multi-menu.",
+      "Back-end Spring Boot : APIs REST (menus, options, validation, publication), sécurité JWT/RBAC, audit et journalisation.",
+      "Front-end Vue.js : back-office d’administration (builder d’arborescences, pré-vérifications, workflow de publication).",
+      "Isolation par institution, paramètres opérateurs (timeouts, encodage GSM7/UCS2), traçabilité par code USSD.",
+      "Impact : time-to-market réduit de plusieurs jours à quelques heures.",
+      "Stack : Spring Boot, Vue.js, MySQL, Docker, JWT/RBAC, tests Postman.",
     ],
   },
   {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    title: "Projet freelance — Plateforme pièces automobiles",
+    company_name: "Full-stack",
+    icon: web,          // remplace par ton propre logo si tu en as un
+    iconBg: "#0e1320",
+    date: "1 juillet 2024 — 31 août 2024",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Catalogue (références, compatibilités, prix, stocks) avec import/export CSV et images produits.",
+      "Workflow commande → paiement → facture & bon de livraison.",
+      "Suivi logistique (statuts, transporteurs, historiques) et rôles (admin, magasin, compta).",
+      "Stack : Angular, Spring Boot, PostgreSQL, JWT.",
     ],
   },
 ];
 
+/* ======== TESTIMONIALS (inchangés; tu pourras les remplacer plus tard) ======== */
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
+        "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
     name: "Sara Lee",
     designation: "CFO",
     company: "Acme Co",
@@ -180,7 +102,7 @@ const testimonials = [
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
+        "I've never met a web developer who truly cares about their clients' success like Rick does.",
     name: "Chris Brown",
     designation: "COO",
     company: "DEF Corp",
@@ -188,7 +110,7 @@ const testimonials = [
   },
   {
     testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
+        "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
     name: "Lisa Wang",
     designation: "CTO",
     company: "456 Enterprises",
@@ -196,69 +118,48 @@ const testimonials = [
   },
 ];
 
+/* ======== PROJECTS (d’après ta section Projets) ======== */
 const projects = [
   {
-    name: "Car Rent",
+    name: "Digitalisation doctorants (microservices)",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "Cadrage des processus (dossier, validations, encadrements, soutenance). Services Spring Boot sécurisés (JWT/RBAC). Front Angular pour workflow (formulaires, pièces jointes, commentaires, tableau de bord). Orchestration (rappels, délais, statuts), audit, exports.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
+      { name: "springboot", color: "blue-text-gradient" },
+      { name: "angular", color: "pink-text-gradient" },
+      { name: "postgresql", color: "green-text-gradient" },
+      { name: "docker", color: "blue-text-gradient" },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: carrent, // placeholder; remplace par un visuel projet si tu veux
+    source_code_link:
+        "https://github.com/FannaneAli/doctorants-microservices",
   },
   {
-    name: "Job IT",
+    name: "Agent IA RAG — NL → SQL",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "RAG : index du schéma & docs métiers (embeddings), récupération ciblée, prompting pour génération SQL. Garde-fous : permissions par rôle, exécution read-only, vérification syntaxe/impact. Réponses sourcées (résumé + extrait tabulaire).",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
+      { name: "python", color: "yellow-text-gradient" },
+      { name: "fastapi", color: "green-text-gradient" },
+      { name: "langchain", color: "purple-text-gradient" },
+      { name: "pgvector", color: "blue-text-gradient" },
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
+    image: jobit, // placeholder
+    source_code_link:
+        "https://github.com/FannaneAli/rag-sql-assistant",
   },
   {
-    name: "Trip Guide",
+    name: "PFA — App Flutter (École)",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+        "Gestion des rôles (admin/enseignant/étudiant) via Firebase Auth. Emplois du temps, création de séances, pointage d’absence (QR/GPS), justificatifs. Intégration Google Maps.",
     tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+      { name: "flutter", color: "blue-text-gradient" },
+      { name: "firebase", color: "pink-text-gradient" },
+      { name: "maps", color: "green-text-gradient" },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: tripguide, // placeholder
+    source_code_link:
+        "https://github.com/FannaneAli/flutter-school-attendance",
   },
 ];
 
