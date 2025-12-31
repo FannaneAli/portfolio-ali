@@ -11,17 +11,19 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
 import { useLanguage } from "../context/LanguageContext";
+import { useTheme } from "../context/ThemeContext";
 import s2m from "../assets/s2m.png";
 import { web } from "../assets";
 
-const ExperienceCard = ({ experience }) => {
+const ExperienceCard = ({ experience, isDark }) => {
     return (
         <VerticalTimelineElement
             contentStyle={{
-                background: "#1d1836",
-                color: "#fff",
+                background: isDark ? "#1d1836" : "#ffffff",
+                color: isDark ? "#fff" : "#1a1a1a",
+                boxShadow: isDark ? "none" : "0 3px 15px rgba(0,0,0,0.1)",
             }}
-            contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+            contentArrowStyle={{ borderRight: `7px solid ${isDark ? "#232631" : "#e5e5ea"}` }}
             date={experience.date}
             iconStyle={{ background: experience.iconBg }}
             icon={
@@ -35,8 +37,8 @@ const ExperienceCard = ({ experience }) => {
             }
         >
             <div>
-                <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
-                <p className="text-secondary text-[16px] font-semibold" style={{ margin: 0 }}>
+                <h3 className={`${isDark ? 'text-white' : 'text-gray-900'} text-[24px] font-bold`}>{experience.title}</h3>
+                <p className={`${isDark ? 'text-secondary' : 'text-gray-600'} text-[16px] font-semibold`} style={{ margin: 0 }}>
                     {experience.company_name}
                 </p>
             </div>
@@ -45,7 +47,7 @@ const ExperienceCard = ({ experience }) => {
                 {experience.points.map((point, index) => (
                     <li
                         key={`experience-point-${index}`}
-                        className="text-white-100 text-[14px] pl-1 tracking-wider"
+                        className={`${isDark ? 'text-white-100' : 'text-gray-700'} text-[14px] pl-1 tracking-wider`}
                     >
                         {point}
                     </li>
@@ -57,6 +59,7 @@ const ExperienceCard = ({ experience }) => {
 
 const Experience = () => {
     const { t } = useLanguage();
+    const { isDark } = useTheme();
 
     const experiences = [
         {
@@ -99,9 +102,9 @@ const Experience = () => {
             </motion.div>
 
             <div className="mt-20 flex flex-col">
-                <VerticalTimeline>
+                <VerticalTimeline lineColor={isDark ? "#232631" : "#d1d5db"}>
                     {experiences.map((experience, index) => (
-                        <ExperienceCard key={`experience-${index}`} experience={experience} />
+                        <ExperienceCard key={`experience-${index}`} experience={experience} isDark={isDark} />
                     ))}
                 </VerticalTimeline>
             </div>
