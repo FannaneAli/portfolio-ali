@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import {
     VerticalTimeline,
     VerticalTimelineElement,
@@ -8,9 +8,11 @@ import { motion } from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
 
 import { styles } from "../styles";
-import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
+import { useLanguage } from "../context/LanguageContext";
+import s2m from "../assets/s2m.png";
+import { web } from "../assets";
 
 const ExperienceCard = ({ experience }) => {
     return (
@@ -54,12 +56,45 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
+    const { t } = useLanguage();
+
+    const experiences = [
+        {
+            title: t("exp1.title"),
+            company_name: t("exp1.company"),
+            icon: s2m,
+            iconBg: "#ffffff",
+            date: t("exp1.date"),
+            points: [
+                t("exp1.point1"),
+                t("exp1.point2"),
+                t("exp1.point3"),
+                t("exp1.point4"),
+                t("exp1.point5"),
+                t("exp1.point6"),
+            ],
+        },
+        {
+            title: t("exp2.title"),
+            company_name: t("exp2.company"),
+            icon: web,
+            iconBg: "#0e1320",
+            date: t("exp2.date"),
+            points: [
+                t("exp2.point1"),
+                t("exp2.point2"),
+                t("exp2.point3"),
+                t("exp2.point4"),
+            ],
+        },
+    ];
+
     return (
         <>
             <motion.div variants={textVariant()}>
-                <p className={`${styles.sectionSubText} text-center`}>Parcours</p>
+                <p className={`${styles.sectionSubText} text-center`}>{t("experience.subtitle")}</p>
                 <h2 className={`${styles.sectionHeadText} text-center`}>
-                    Expériences professionnelles.
+                    {t("experience.title")}
                 </h2>
             </motion.div>
 

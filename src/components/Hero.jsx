@@ -4,22 +4,29 @@ import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
-
-const PHRASE = "Salut, je suis Ali";
+import { useLanguage } from "../context/LanguageContext";
 
 const Hero = () => {
-    const [text, setText] = useState("");       // portion affichée
+    const { language, t } = useLanguage();
+    const PHRASE_FR = "Salut, je suis Ali";
+    const PHRASE_EN = "Hi, I'm Ali";
+    const PHRASE = language === 'fr' ? PHRASE_FR : PHRASE_EN;
+    
+    const [text, setText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
 
     useEffect(() => {
-        const typeSpeed = isDeleting ? 50 : 90;   // vitesse effacement/écriture
+        setText("");
+        setIsDeleting(false);
+    }, [language]);
+
+    useEffect(() => {
+        const typeSpeed = isDeleting ? 50 : 90;
         let timerId;
 
         if (!isDeleting && text === PHRASE) {
-            // Pause à la fin de l'écriture
             timerId = setTimeout(() => setIsDeleting(true), 1200);
         } else if (isDeleting && text === "") {
-            // Petite pause avant de relancer
             timerId = setTimeout(() => setIsDeleting(false), 400);
         } else {
             timerId = setTimeout(() => {
@@ -29,9 +36,8 @@ const Hero = () => {
         }
 
         return () => clearTimeout(timerId);
-    }, [text, isDeleting]);
+    }, [text, isDeleting, PHRASE]);
 
-    // Mise en valeur de "Ali" en violet pendant la frappe
     const aliStart = PHRASE.indexOf("Ali");
     const aliEnd = aliStart + "Ali".length;
     const typedLen = text.length;
@@ -59,10 +65,19 @@ const Hero = () => {
                     </h1>
 
                     <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-                        Je suis un <strong>futur ingénieur informatique</strong>, spécialisé en{" "}
-                        <strong>développement full-stack</strong>.
+                        {language === 'fr' ? (
+                            <>
+                                Je suis un <strong>futur ingénieur informatique</strong>, spécialisé en{" "}
+                                <strong>développement full-stack</strong>.
+                            </>
+                        ) : (
+                            <>
+                                I'm a <strong>future software engineer</strong>, specialized in{" "}
+                                <strong>full-stack development</strong>.
+                            </>
+                        )}
                         <br className="sm:block hidden" />
-                        Spring Boot &amp; Angular • Microservices (Eureka/Gateway) • Sécurité JWT • PostgreSQL • Kafka
+                        Spring Boot &amp; Angular • Microservices (Eureka/Gateway) • JWT Security • PostgreSQL • Kafka
                     </p>
                 </div>
             </div>

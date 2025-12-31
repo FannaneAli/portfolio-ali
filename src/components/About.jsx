@@ -1,11 +1,12 @@
-import React from "react";
+﻿import React from "react";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
-import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
+import { useLanguage } from "../context/LanguageContext";
+import { backend, web, creator, mobile } from "../assets";
 
 const ServiceCard = ({ index, title, icon }) => (
     <Tilt
@@ -28,28 +29,45 @@ const ServiceCard = ({ index, title, icon }) => (
 );
 
 const About = () => {
+    const { language, t } = useLanguage();
+
+    const localizedServices = [
+        { title: t("service.backend"), icon: backend },
+        { title: t("service.frontend"), icon: web },
+        { title: t("service.api"), icon: creator },
+        { title: t("service.database"), icon: mobile },
+    ];
+
     return (
         <>
             <motion.div variants={textVariant()}>
-                <p className={styles.sectionSubText}>Profil</p>
-                <h2 className={styles.sectionHeadText}>Présentation.</h2>
+                <p className={styles.sectionSubText}>{t("about.subtitle")}</p>
+                <h2 className={styles.sectionHeadText}>{t("about.title")}</h2>
             </motion.div>
 
-            {/* Texte de présentation (mêmes tailles/espacements que le template) */}
             <motion.p
                 variants={fadeIn("", "", 0.1, 1)}
                 className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
             >
-                Je suis <b>Fannane Ali</b>, futur ingénieur en <b>informatique & réseaux</b> (EMSI),
-                spécialisé en <b>développement full-stack</b> et <b>microservices</b>. Curieux et
-                orienté résultats, je me distingue par une <b>capacité d’apprentissage rapide</b> et
-                un <b>esprit d’initiative</b> au service de produits fiables et scalables.
+                {language === 'fr' ? (
+                    <>
+                        Je suis <b>Fannane Ali</b>, futur ingénieur en <b>informatique & réseaux</b> (EMSI),
+                        spécialisé en <b>développement full-stack</b> et <b>microservices</b>. Curieux et
+                        orienté résultats, je me distingue par une <b>capacité d apprentissage rapide</b> et
+                        un <b>esprit d initiative</b> au service de produits fiables et scalables.
+                    </>
+                ) : (
+                    <>
+                        I am <b>Fannane Ali</b>, a future engineer in <b>IT & Networks</b> (EMSI),
+                        specialized in <b>full-stack development</b> and <b>microservices</b>. Curious and
+                        results-oriented, I stand out with my <b>fast learning ability</b> and
+                        <b> initiative spirit</b> to deliver reliable and scalable products.
+                    </>
+                )}
             </motion.p>
 
-
-
             <div className="mt-20 flex flex-wrap gap-10">
-                {services.map((service, index) => (
+                {localizedServices.map((service, index) => (
                     <ServiceCard key={service.title} index={index} {...service} />
                 ))}
             </div>
