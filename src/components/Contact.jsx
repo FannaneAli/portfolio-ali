@@ -33,21 +33,22 @@ const Contact = () => {
 
     emailjs
       .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        "service_jozlhf9",
+        "template_ry5m0df",
         {
+          name: form.name,
           from_name: form.name,
-          to_name: "JavaScript Mastery",
           from_email: form.email,
-          to_email: "sujata@jsmastery.pro",
+          email: form.email,
+          to_name: "Ali Fannane",
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        "JqQ__0dPxqVUf20wa"
       )
       .then(
         () => {
           setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+          alert("Merci ! Je vous répondrai dès que possible.");
 
           setForm({
             name: "",
@@ -59,7 +60,7 @@ const Contact = () => {
           setLoading(false);
           console.error(error);
 
-          alert("Ahh, something went wrong. Please try again.");
+          alert("Une erreur est survenue. Veuillez réessayer.");
         }
       );
   };
