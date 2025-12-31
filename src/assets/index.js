@@ -29,6 +29,9 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import doctorants from "./doctorants.png";
+import rag_agent from "./rag_agent.png";
+import flutter_app from "./flutter_app.png";
 
 export {
   logo,
@@ -59,4 +62,7 @@ export {
   carrent,
   jobit,
   tripguide,
+  doctorants,
+  rag_agent,
+  flutter_app,
 };

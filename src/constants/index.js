@@ -22,7 +22,10 @@
   carrent,
   jobit,
   tripguide,
-  threejs, // <-- ajoute bien s2m dans src/assets/index.js
+  doctorants,
+  rag_agent,
+  flutter_app,
+  threejs,
 } from "../assets";
 // src/constants/index.js
 import s2m from "../assets/s2m.png"; // <-- ajoute cette ligne
@@ -130,7 +133,7 @@ const projects = [
       { name: "postgresql", color: "green-text-gradient" },
       { name: "docker", color: "blue-text-gradient" },
     ],
-    image: carrent,
+    image: doctorants,
     source_code_link: "https://github.com/FannaneAli/serviceAuth",
   },
   {
@@ -143,7 +146,7 @@ const projects = [
       { name: "langchain", color: "purple-text-gradient" },
       { name: "pgvector", color: "blue-text-gradient" },
     ],
-    image: jobit,
+    image: rag_agent,
     source_code_link: "https://github.com/FannaneAli/universal-db-rag-v2",
   },
   {
@@ -156,7 +159,7 @@ const projects = [
       { name: "tensorflow", color: "orange-text-gradient" },
       { name: "maps", color: "green-text-gradient" },
     ],
-    image: tripguide,
+    image: flutter_app,
     source_code_link: "https://github.com/FannaneAli/flutter_deeplearning_projet",
   },
 ];
