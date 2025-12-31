@@ -132,7 +132,7 @@ const projects = [
     ],
     image: carrent, // placeholder; remplace par un visuel projet si tu veux
     source_code_link:
-        "https://github.com/FannaneAli/doctorants-microservices",
+        "https://github.com/FannaneAli/serviceAuth",
   },
   {
     name: "Agent IA RAG — NL → SQL",
