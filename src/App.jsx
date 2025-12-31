@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 
-import { About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas } from "./components";
+import { About, Contact, Experience, Hero, Navbar, Tech, Works, Footer, StarsCanvas } from "./components";
 import { LanguageProvider } from "./context/LanguageContext";
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -22,6 +22,7 @@ const App = () => {
               <Contact />
               <StarsCanvas />
             </div>
+            <Footer />
           </div>
         </BrowserRouter>
       </LanguageProvider>

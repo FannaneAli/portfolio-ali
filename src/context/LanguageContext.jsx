@@ -117,6 +117,12 @@ const translations = {
     // Feedbacks
     "feedbacks.subtitle": "Ce que les autres disent",
     "feedbacks.title": "Témoignages.",
+
+    // Footer
+    "footer.description": "Développeur Full-Stack passionné par la création de solutions web innovantes et performantes.",
+    "footer.quickLinks": "Liens rapides",
+    "footer.contact": "Contact",
+    "footer.rights": "Tous droits réservés.",
   },
 
   en: {
@@ -199,6 +205,12 @@ const translations = {
     // Feedbacks
     "feedbacks.subtitle": "What others say",
     "feedbacks.title": "Testimonials.",
+
+    // Footer
+    "footer.description": "Full-Stack Developer passionate about creating innovative and high-performance web solutions.",
+    "footer.quickLinks": "Quick Links",
+    "footer.contact": "Contact",
+    "footer.rights": "All rights reserved.",
   },
 };
 
